@@ -6,7 +6,7 @@ class GamesController < ApplicationController
   end
 
   def create
-    @game = Game.new(game_params)
+    @game = Game.new(state :state)
     redirect_to game_path(@game)
   end
 
@@ -21,9 +21,9 @@ class GamesController < ApplicationController
   def update
   end
 
-  private
-
-  def game_params
-    params.require(:game).permit(:state)
-  end
+  # private
+  # 
+  # def game_params
+  #   params.require(:game).permit(:state)
+  # end
 end
