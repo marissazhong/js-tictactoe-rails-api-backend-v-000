@@ -7,18 +7,17 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.create(state: params[:state])
-    redirect_to game_path(@game)
+    render json: @game, status: 201
   end
 
   def show
     @game = Game.find(params[:id])
-    respond_to do |format|
-      format.html { render :show }
-      format.json { render json: @game }
-    end
+    render json: @game
   end
 
   def update
+    @game = Game.find(params[:id])
+    
   end
 
   # private
