@@ -6,7 +6,7 @@ class GamesController < ApplicationController
   end
 
   def create
-    @game = Game.new(state: params[:state])
+    @game = Game.create(state: params[:state])
     redirect_to game_path(@game)
   end
 
